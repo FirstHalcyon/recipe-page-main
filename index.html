@@ -10,68 +10,317 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    @media only screen and (max-device-width: 376px) {
+      main {
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding: 2rem;
+        border-radius: 0px;
+      }
+
+      .article-img {
+        border-radius: 0px;
+        min-width: 375px;
+        margin:-2rem;
+        padding-bottom: 1.5rem;
+        align-self: center;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+    }
+
+    @media (min-device-width: 376px){
+      main {
+        width: 49%;
+        min-width: 25rem;
+        margin: 7%;
+        padding: 2.5rem;
+        border-radius: 20px;
+      }
+
+      .article-img {
+        border-radius: 10px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+    /* young-serif-regular - latin */
+    @font-face {
+      font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+      font-family: 'Young Serif';
+      font-style: normal;
+      font-weight: 400;
+      src: url('./assets/fonts/young-serif-v2-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+
+    /* outfit-regular - latin */
+    @font-face {
+      font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+      font-family: 'Outfit';
+      font-style: normal;
+      font-weight: 400;
+      src: url('./assets/fonts/outfit-v11-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+
+    /* outfit-600 - latin */
+    @font-face {
+      font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+      font-family: 'Outfit';
+      font-style: normal;
+      font-weight: 600;
+      src: url('./assets/fonts/outfit-v11-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+
+    /* outfit-700 - latin */
+    @font-face {
+      font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+      font-family: 'Outfit';
+      font-style: normal;
+      font-weight: 700;
+      src: url('./assets/fonts/outfit-v11-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+
+    /* CSS Modern Reset Start */
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    * {
+      margin: 0;
+    }
+
+    body {
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img, picture, video, canvas, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    input, button, textarea, select {
+      font: inherit;
+    }
+
+    p, h1, h2, h3, h4, h5, h6 {
+      overflow-wrap: break-word;
+    }
+
+    #root, #__next {
+      isolation: isolate;
+    }
+
+    /* CSS Modern Reset End */
+    
+
+    .attribution { font-size: 11px; text-align: center; font-family: Outfit, sans-serif;}
+    .attribution a { color: hsl(228, 45%, 44%); font-family: Outfit, sans-serif; }
+
+    body {
+      background-color: hsl(30, 54%, 90%);
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      height: fit-content;
+      gap: 1.75rem;
+    }
+
+    h1 {
+      font-family: 'Young Serif', serif;
+      color: hsl(24, 5%, 18%);
+      font-weight: 400;
+    }
+
+    .title {
+      font-family: 'Young Serif', serif;
+      color: hsl(14, 45%, 36%);
+      font-weight: 400;
+    }
+
+    .content {
+      font-family: Outfit, sans-serif;
+      color: hsl(30, 10%, 34%);
+      margin-top: 1rem;
+    }
+
+    .prep-time {
+      background-color: hsl(330, 100%, 98%);
+      padding: 1.75rem;
+      border-radius: 10px;
+    }
+
+    .prep-time>h3 {
+      color: hsl(332, 51%, 32%);
+      font-family: Outfit, sans-serif;
+      font-weight: 600;
+    }
+
+    .list {
+      margin-left: 0.5rem;
+      padding-left: 1rem;
+      list-style-position: outside;
+    }
+
+    li {
+      padding-bottom: 0.5rem;
+    }
+
+    .brown>li::marker {
+      font-size: 0.8rem;
+      color: hsl(14, 45%, 36%);
+    }
+
+    .purple>li::marker {
+      font-size: 0.8rem;
+      color: hsl(332, 51%, 32%);
+    }
+
+    .or>li {
+      padding-left: 1rem;
+      margin-left: 0.25rem;
+    }
+
+    .or>li::marker {
+      font-family: Outfit, sans-serif;
+      font-weight: 600;
+      color:hsl(14, 45%, 36%);
+    }
+
+    .un>li::before{
+      content: "";
+      width: 1.25rem;
+      display: inline-block;
+    }
+    
+    hr {
+      height: 1px;
+      background-color: hsla(32, 10%, 34%, 0.629);
+      border:none
+    }
+
+    .nutrition-table {
+      border-collapse: collapse;
+    }
+
+    .nutr-value {
+      color: hsl(14, 45%, 36%);
+      font-family: Outfit, sans-serif;
+      font-weight: 600;
+    }
+
+    td {
+      width: 35rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid hsla(32, 10%, 34%, 0.629);
+    }
+
+    .first-col {
+      padding-left: 2rem;
+    }
+
+    .last-line {
+      border: none;
+      padding-bottom: 0;
+    }
+
+
   </style>
 </head>
 <body>
+  <div class="container">
+    <main>
+      <img class="article-img" src="./assets/images/image-omelette.jpeg" alt="omelette"/>
+      <header>
+        <h1>Simple Omelette Recipe</h1>
+        <p class="content">An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs cooked 
+          to perfection, optionally filled with your choice of cheese, vegetables, or meats.</p>
+      </header>
 
-  Simple Omelette Recipe
+      <article class="prep-time">
+        <h3 class="title">Preparation time</h3>
+        <ul class="purple un list content">
+          <li><strong>Total:</strong> Approximately 10 minutes</li>
+          <li><strong>Preparation:</strong> 5 minutes</li>
+          <li><strong>Cooking:</strong> 5 minutes</li>
+        </ul>
+      </article>
 
-  An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs cooked 
-  to perfection, optionally filled with your choice of cheese, vegetables, or meats.
+      <article>
+        <h2 class="title">Ingredients</h2>
+        <ul class="brown un list content">
+          <li>2-3 large eggs</li>
+          <li>Salt, to taste</li>
+          <li>Pepper, to taste</li>
+          <li>1 tablespoon of butter or oil</li>
+          <li>Optional fillings: cheese, diced vegetables, cooked meats, herbs</li>
+        </ul>
+      </article>
 
-  Preparation time
+      <hr/>
 
-  Total: Approximately 10 minutes
-  Preparation: 5 minutes
-  Cooking: 5 minutes
+      <article>
+        <h2 class="title">Instructions</h2>
+        <ol class="or list content">
+          <li><strong>Beat the eggs:</strong> In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. 
+            You can add a tablespoon of water or milk for a fluffier texture.</li>
+          <li><strong>Heat the pan:</strong> Place a non-stick frying pan over medium heat and add butter or oil.</li>
+          <li><strong>Cook the omelette:</strong> Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to ensure 
+            the eggs evenly coat the surface.</li>
+          <li><strong>Add fillings (optional):</strong> When the eggs begin to set at the edges but are still slightly runny in the 
+            middle, sprinkle your chosen fillings over one half of the omelette.</li>
+          <li><strong>Fold and serve:</strong> As the omelette continues to cook, carefully lift one edge and fold it over the 
+            fillings. Let it cook for another minute, then slide it onto a plate.</li>
+          <li><strong>Enjoy:</strong> Serve hot, with additional salt and pepper if needed.</li>
+        </ul>
+      </article>
 
-  Ingredients
+      <hr/>
 
-  2-3 large eggs
-  Salt, to taste
-  Pepper, to taste
-  1 tablespoon of butter or oil
-  Optional fillings: cheese, diced vegetables, cooked meats, herbs
-
-  Instructions
-
-  Beat the eggs: In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. 
-  You can add a tablespoon of water or milk for a fluffier texture.
-
-  Heat the pan: Place a non-stick frying pan over medium heat and add butter or oil.
-
-  Cook the omelette: Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to ensure 
-  the eggs evenly coat the surface.
-
-  Add fillings (optional): When the eggs begin to set at the edges but are still slightly runny in the 
-  middle, sprinkle your chosen fillings over one half of the omelette.
-
-  Fold and serve: As the omelette continues to cook, carefully lift one edge and fold it over the 
-  fillings. Let it cook for another minute, then slide it onto a plate.
-
-  Enjoy: Serve hot, with additional salt and pepper if needed.
-
-  Nutrition
-
-  The table below shows nutritional values per serving without the additional fillings.
-
-  Calories
-  277kcal
-
-  Carbs
-  0g
-
-  Protein
-  20g
-
-  Fat
-  22g
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+      <article>
+        <h2 class="title">Nutrition</h2>
+        <p class="content">The table below shows nutritional values per serving without the additional fillings.</p>
+        <table class="nutrition-table">
+          <tr>
+            <td class="first-col content">Calories</td>
+            <td class="nutr-value">277kcal</td>
+          </tr>
+          <tr>
+            <td class="first-col content">Carbs</td>
+            <td class="nutr-value">0g</td>
+          </tr>
+          <tr>
+            <td class="first-col content">Protein</td>
+            <td class="nutr-value">20g</td>
+          </tr>
+          <tr>
+            <td class="last-line first-col content">Fat</td>
+            <td class="last-line nutr-value">22g</td>
+          </tr>
+        </table>
+      </article>
+    </main>
   </div>
+  
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/FirstHalcyon">Hal</a>.
+  </footer>
 </body>
 </html>
